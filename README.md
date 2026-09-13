@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/Dande-new.png" alt="Dande Music Logo" width="120"/>
+  <img src="app/src/main/res/drawable/logo.png" alt="DandeMusic Logo" width="150" height="150"/>
 
   <h1>Dande Music</h1>
 
@@ -13,60 +13,16 @@
 Dande Music delivers a seamless, premium listening experience by leveraging YouTube Music's vast library — without the ads. It adds powerful extras including offline downloads, real-time synchronized lyrics, and environment-aware music recognition.
 
 > [!IMPORTANT]
-> **In-app OTA updates have been permanently removed.** Please update manually via the website. Dande Music is completely free and ad-free; the few ads shown during a manual download help support the ongoing development of this project. Please do not open issues requesting to bring this back. Thank you for your support!
-
----
-
-- **Discord**: [Join the Dande Music Discord server](https://discord.gg/Xt5hgsJJuA)
+> **In-app OTA updates have been permanently removed.** Please update manually via the website. Dande Music is completely free and ad-free. Made to replace music subscriptions. The app was made by Aryan Varma Sirivuri just for educational purposes and personal use. The app isn't considered as "piracy" as it still supports many artists across the world and we still encourage people to get paid subscriptions. Thank you for your support!
 
 ---
 
 ## Table of Contents
 
 - [Overview](#overview)
-- [Screenshots](#screenshots)
 - [Features](#features)
 - [Installation & Setup](#installation--setup)
-- [Support the Project](#support-the-project)
-- [Contributors](#contributors)
 - [Special Thanks](#special-thanks)
-
----
-
-## Screenshots
-
-<div align="left">
-  <table style="margin: 0 auto; border-collapse: collapse;">
-    <tr>
-      <td align="center" style="padding: 15px; border: none;">
-        <b>Home Screen</b><br><br>
-        <img src="Screenshots/sc_1.png" alt="Home Screen" width="220" style="border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.2);"/>
-      </td>
-      <td align="center" style="padding: 15px; border: none;">
-        <b>Music Player</b><br><br>
-        <img src="Screenshots/sc_2.png" alt="Music Player" width="220" style="border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.2);"/>
-      </td>
-      <td align="center" style="padding: 15px; border: none;">
-        <b>Synchronized Lyrics</b><br><br>
-        <img src="Screenshots/sc_3.png" alt="Synchronized Lyrics" width="220" style="border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.2);"/>
-      </td>
-    </tr>
-    <tr>
-      <td align="center" style="padding: 15px; border: none;">
-        <b>Search & Explore</b><br><br>
-        <img src="Screenshots/sc_4.png" alt="Search & Explore" width="220" style="border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.2);"/>
-      </td>
-      <td align="center" style="padding: 15px; border: none;">
-        <b>Music Library</b><br><br>
-        <img src="Screenshots/sc_5.png" alt="Music Library" width="220" style="border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.2);"/>
-      </td>
-      <td align="center" style="padding: 15px; border: none;">
-        <b>Dande Find (Recognition)</b><br><br>
-        <img src="Screenshots/sc_6.png" alt="Dande Find" width="220" style="border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.2);"/>
-      </td>
-    </tr>
-  </table>
-</div>
 
 ---
 
@@ -159,7 +115,7 @@ Dande Music delivers a seamless, premium listening experience by leveraging YouT
 
 ### Android Installation
 
-Download the latest pre-compiled APK from the [Releases Page](https://github.com/DandeMusicApp/Dande-Music/releases/latest).
+Download the latest pre-compiled APK from the [Releases Page](https://github.com/Dande-at-work/DandeMusic.git).
 
 <details>
 <summary><b>Building from Source</b></summary>
@@ -168,7 +124,7 @@ Download the latest pre-compiled APK from the [Releases Page](https://github.com
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/iad1tya/Dande-Music.git
+   git clone https://github.com/Dande-at-work/DandeMusic.git
    cd Dande-Music
    ```
 
@@ -199,55 +155,6 @@ Download the latest pre-compiled APK from the [Releases Page](https://github.com
    _(For optimized ARM64 builds, release builds, or other options, refer to [SETUP.md](SETUP.md))_
 
 </details>
-
----
-
-## Support the Project
-
-If Dande Music has been useful to you, consider supporting its development.
-
-<div align="left">
-  <table style="margin: 0 auto; border-collapse: collapse; border: none;">
-    <tr>
-      <td align="center" style="padding: 15px; border: none;">
-        <a href="https://buymeacoffee.com/iad1tya" style="text-decoration:none;"><img src="assets/bmac.png" alt="Buy Me A Coffee Logo" width="140" style="border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.2);"/></a>
-      </td>
-      <td align="center" style="padding: 15px; border: none;">
-        <a href="https://intradeus.github.io/http-protocol-redirector/?r=upi://pay?pa=iad1tya@upi&pn=Aditya%20Yadav&am=&tn=Thank%20You" style="text-decoration:none;"><img src="assets/upi.svg" alt="UPI Logo" width="100" style="border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.2);"/></a>
-      </td>
-      <td align="center" style="padding: 15px; border: none;">
-        <a href="https://www.patreon.com/cw/iad1tya" style="text-decoration:none;"><img src="assets/patreon3.png" alt="Patreon Logo" width="100" style="border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.2);"/></a>
-      </td>
-    </tr>
-  </table>
-</div>
-
-<br>
-
-<details>
-<summary><b>Cryptocurrency Options</b></summary>
-<br>
-
-| Network      | Address                                        |
-| :----------- | :--------------------------------------------- |
-| **Bitcoin**  | `bc1qcvyr7eekha8uytmffcvgzf4h7xy7shqzke35fy`   |
-| **Ethereum** | `0x51bc91022E2dCef9974D5db2A0e22d57B360e700`   |
-| **Solana**   | `9wjca3EQnEiqzqgy7N5iqS1JGXJiknMQv6zHgL96t94S` |
-
-</details>
-
----
-
-## Contributors
-
-Without the support of this incredible open-source community, none of this would be possible. Thank you to everyone who has contributed to Dande Music!
-
-<!-- readme: contributors -start -->
-<table>
-<tr><td align="center"><a href="https://github.com/Dande-at-work"><img src="https://avatars.githubusercontent.com/u/230550483?v=4" width="60" height="60" /></a></td></tr>
-</table>
-<!-- readme: contributors -end -->
-
 
 ---
 
@@ -286,9 +193,7 @@ We do not host, upload, distribute, or store any audio, video, or copyrighted me
 
 ### 5. User Responsibility & Legal Contact
 
-The software is provided "AS IS", without warranty of any kind. The developers of Dande Music do not encourage or condone piracy. Users are solely responsible for ensuring their usage of this app complies with their local copyright laws and the Terms of Service of the platforms they access.
-
-Because we do not host any media files, we cannot process DMCA takedown requests for audio or video content. However, if you represent a copyright holder or have legal concerns regarding the open-source code itself, please contact us via email at: [hello@echomusic.fun](mailto:hello@echomusic.fun)
+The software is provided "AS IS", without warranty of any kind. The developer of Dande Music, Aryan Varma Sirivuri do not encourage or condone piracy. Users are solely responsible for ensuring their usage of this app complies with their local copyright laws and the Terms of Service of the platforms they access.
 
 ---
 
