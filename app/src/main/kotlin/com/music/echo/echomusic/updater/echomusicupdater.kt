@@ -116,9 +116,9 @@ import echo.music.iad1tya.ui.component.DefaultDialog
 
 data class ChangelogSection(val title: String, val items: List<String>)
 
-sealed class EchoUpdateStatus {
-    object Idle : EchoUpdateStatus()
-    object Checking : EchoUpdateStatus()
+sealed class DandeUpdateStatus {
+    object Idle : DandeUpdateStatus()
+    object Checking : DandeUpdateStatus()
     data class Available(
         val version: String,
         val changelog: List<ChangelogSection>,
@@ -127,10 +127,10 @@ sealed class EchoUpdateStatus {
         val description: String?,
         val imageUrl: String?,
         val apkUrl: String?
-    ) : EchoUpdateStatus()
+    ) : DandeUpdateStatus()
 
-    data class NoUpdate(val version: String) : EchoUpdateStatus()
-    data class Error(val message: String) : EchoUpdateStatus()
+    data class NoUpdate(val version: String) : DandeUpdateStatus()
+    data class Error(val message: String) : DandeUpdateStatus()
 }
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
@@ -138,7 +138,7 @@ sealed class EchoUpdateStatus {
 fun UpdateScreen(navController: NavHostController) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
-    var status by remember { mutableStateOf<EchoUpdateStatus>(EchoUpdateStatus.NoUpdate(BuildConfig.VERSION_NAME)) }
+    var status by remember { mutableStateOf<DandeUpdateStatus>(DandeUpdateStatus.NoUpdate(BuildConfig.VERSION_NAME)) }
     var isDownloading by remember { mutableStateOf(false) }
     var downloadProgress by remember { mutableStateOf(0f) }
     var isDownloadComplete by remember { mutableStateOf(false) }
@@ -199,7 +199,7 @@ fun UpdateScreen(navController: NavHostController) {
     }
 
     fun triggerUpdateCheck() {
-        status = EchoUpdateStatus.Checking
+        status = DandeUpdateStatus.Checking
         scope.launch {
             
             delay(1000L)
@@ -209,7 +209,7 @@ fun UpdateScreen(navController: NavHostController) {
                     saveLastCheckedTime(context, LocalDateTime.now().format(DateTimeFormatter.ofPattern("d MMMM yyyy, h:mm a")))
                     saveUpdateAvailableState(context, isAvailable)
                     status = if (isAvailable) {
-                        EchoUpdateStatus.Available(
+                        DandeUpdateStatus.Available(
                             version = tag,
                             changelog = changelog,
                             size = size,
@@ -219,11 +219,11 @@ fun UpdateScreen(navController: NavHostController) {
                             apkUrl = apkUrl
                         )
                     } else {
-                        EchoUpdateStatus.NoUpdate(tag)
+                        DandeUpdateStatus.NoUpdate(tag)
                     }
                 },
                 onError = {
-                    status = EchoUpdateStatus.Error(context.getString(R.string.cant_check_updates))
+                    status = DandeUpdateStatus.Error(context.getString(R.string.cant_check_updates))
                 }
             )
         }
@@ -241,7 +241,7 @@ fun UpdateScreen(navController: NavHostController) {
         topBar = {
             LargeTopAppBar(
                 title = {
-                    val titleText = if (status is EchoUpdateStatus.Available) {
+                    val titleText = if (status is DandeUpdateStatus.Available) {
                         buildAnnotatedString {
                             append(stringResource(R.string.new_update) + " ")
                             withStyle(
@@ -250,7 +250,7 @@ fun UpdateScreen(navController: NavHostController) {
                                     fontWeight = FontWeight.Bold
                                 )
                             ) {
-                                append((status as EchoUpdateStatus.Available).version)
+                                append((status as DandeUpdateStatus.Available).version)
                             }
                         }
                     } else {
@@ -290,16 +290,16 @@ fun UpdateScreen(navController: NavHostController) {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     when (val currentStatus = status) {
-                        is EchoUpdateStatus.Idle, is EchoUpdateStatus.Checking, is EchoUpdateStatus.NoUpdate, is EchoUpdateStatus.Error -> {
+                        is DandeUpdateStatus.Idle, is DandeUpdateStatus.Checking, is DandeUpdateStatus.NoUpdate, is DandeUpdateStatus.Error -> {
                             AnimatedActionButton(
                                 text = stringResource(R.string.check_for_update),
                                 onClick = { triggerUpdateCheck() },
-                                enabled = currentStatus !is EchoUpdateStatus.Checking && !isDownloading,
+                                enabled = currentStatus !is DandeUpdateStatus.Checking && !isDownloading,
                                 modifier = Modifier.fillMaxWidth()
                             )
                         }
 
-                        is EchoUpdateStatus.Available -> {
+                        is DandeUpdateStatus.Available -> {
                             Row(
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.spacedBy(12.dp)
@@ -341,7 +341,7 @@ fun UpdateScreen(navController: NavHostController) {
                                                 ContextCompat.startActivity(context, installIntent, null)
                                             }
                                         } else {
-                                            val urlToDownload = currentStatus.apkUrl ?: "https://github.com/EchoMusicApp/Echo-Music/releases/download/${currentStatus.version}/echomusic.apk"
+                                            val urlToDownload = currentStatus.apkUrl ?: "https://github.com/DandeMusicApp/Dande-Music/releases/download/${currentStatus.version}/echomusic.apk"
                                             
                                             val constraints = Constraints.Builder()
                                                 .setRequiredNetworkType(NetworkType.CONNECTED)
@@ -388,7 +388,7 @@ fun UpdateScreen(navController: NavHostController) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 item {
-                    val contentModifier = if (status is EchoUpdateStatus.Available) {
+                    val contentModifier = if (status is DandeUpdateStatus.Available) {
                         Modifier.fillMaxWidth()
                     } else {
                         Modifier.fillParentMaxSize()
@@ -399,13 +399,13 @@ fun UpdateScreen(navController: NavHostController) {
                         contentAlignment = Alignment.Center
                     ) {
                         when (val currentStatus = status) {
-                            is EchoUpdateStatus.Checking -> {
+                            is DandeUpdateStatus.Checking -> {
                                 androidx.compose.material3.ContainedLoadingIndicator(
                                     modifier = Modifier.size(64.dp)
                                 )
                             }
 
-                            is EchoUpdateStatus.NoUpdate -> {
+                            is DandeUpdateStatus.NoUpdate -> {
                                 Column(
                                     horizontalAlignment = Alignment.CenterHorizontally
                                 ) {
@@ -433,7 +433,7 @@ fun UpdateScreen(navController: NavHostController) {
                                 }
                             }
 
-                            is EchoUpdateStatus.Error -> {
+                            is DandeUpdateStatus.Error -> {
                                 Column(
                                     horizontalAlignment = Alignment.CenterHorizontally
                                 ) {
@@ -454,7 +454,7 @@ fun UpdateScreen(navController: NavHostController) {
                                 }
                             }
 
-                            is EchoUpdateStatus.Available -> {
+                            is DandeUpdateStatus.Available -> {
                                 Column(
                                     modifier = Modifier.fillMaxWidth(),
                                     horizontalAlignment = Alignment.Start
@@ -668,7 +668,7 @@ suspend fun checkForUpdate(
 ) {
     withContext(Dispatchers.IO) {
         try {
-            val url = URL("https://api.github.com/repos/EchoMusicApp/Echo-Music/releases/latest")
+            val url = URL("https://api.github.com/repos/DandeMusicApp/Dande-Music/releases/latest")
             val json = url.openStream().bufferedReader().use { it.readText() }
             val targetRelease = JSONObject(json)
             
@@ -688,7 +688,7 @@ suspend fun checkForUpdate(
                 var imageUrl: String? = null
                 try {
                     val changelogUrl =
-                        URL("https://github.com/EchoMusicApp/Echo-Music/releases/download/$tagWithPrefix/changelog.json")
+                        URL("https://github.com/DandeMusicApp/Dande-Music/releases/download/$tagWithPrefix/changelog.json")
                     val changelogJson = changelogUrl.openStream().bufferedReader().use { it.readText() }
                     val changelogData = JSONObject(changelogJson)
 
@@ -790,7 +790,7 @@ private fun openTimedStream(url: String): java.io.InputStream =
 suspend fun fetchChangelogForVersion(currentVersion: String): WhatsNewInfo? = withContext(Dispatchers.IO) {
     try {
         val cleanCurrent = currentVersion.removePrefix("b").removePrefix("v").trim()
-        val releasesJson = openTimedStream("https://api.github.com/repos/EchoMusicApp/Echo-Music/releases")
+        val releasesJson = openTimedStream("https://api.github.com/repos/DandeMusicApp/Dande-Music/releases")
             .bufferedReader().use { it.readText() }
         val releases = JSONArray(releasesJson)
 
@@ -809,7 +809,7 @@ suspend fun fetchChangelogForVersion(currentVersion: String): WhatsNewInfo? = wi
         val changelogList = mutableListOf<ChangelogSection>()
         var description: String? = null
         try {
-            val changelogJson = openTimedStream("https://github.com/EchoMusicApp/Echo-Music/releases/download/$tag/changelog.json")
+            val changelogJson = openTimedStream("https://github.com/DandeMusicApp/Dande-Music/releases/download/$tag/changelog.json")
                 .bufferedReader().use { it.readText() }
             val changelogData = JSONObject(changelogJson)
             description = changelogData.optString("description").takeIf { it.isNotEmpty() }

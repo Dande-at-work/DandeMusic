@@ -1,4 +1,4 @@
-# AGENT.md - Echo Music
+# AGENT.md - Dande Music
 
 Context file for AI agents (Antigravity, Claude Code, etc.) working in this repo.
 Keep this file up to date as the project evolves — it's the fastest way to give
@@ -64,14 +64,14 @@ the agent full context without re-scanning the whole codebase every session.
 
 > **Build & Installation rule:** During development, if you are asked to assemble or install the app, or if you are doing so autonomously for testing, **always use the Universal GMS variant** (e.g., `./gradlew assembleUniversalGmsDebug` or `./gradlew installUniversalGmsDebug`).
 
-### UI rule: Custom Echo Music Aesthetic (over Material You)
+### UI rule: Custom Dande Music Aesthetic (over Material You)
 
 All UI work — new screens, new components, and edits to existing ones —
-**must** match the established custom visual style of Echo Music rather than blindly
+**must** match the established custom visual style of Dande Music rather than blindly
 applying standard Material Design 3 guidelines.
 
 We maintain a dedicated **[DESIGN.md](DESIGN.md)** file which serves as the central
-hub for all design decisions, component usage, and style choices in the Echo Music codebase.
+hub for all design decisions, component usage, and style choices in the Dande Music codebase.
 
 **Key Requirements:**
 - **Match existing patterns:** Look at the existing UI (like the custom original Settings or Listen Together styles) and replicate their translucent cards, rounded corners, and spacing.
@@ -102,9 +102,9 @@ If a new feature needs a UI pattern not covered in `DESIGN.md`, copy an existing
 
 ## What this app is
 
-Echo Music is a native **Android** music streaming client (Kotlin + Jetpack
+Dande Music is a native **Android** music streaming client (Kotlin + Jetpack
 Compose) that streams from YouTube Music's catalog ad-free, and layers on
-offline downloads, real-time synced lyrics, music recognition ("Echo Find"),
+offline downloads, real-time synced lyrics, music recognition ("Dande Find"),
 podcasts, local media playback, Spotify import, "Listen Together" (synced
 group listening), Discord Rich Presence, and more. It ships as a single
 **GMS** build variant (Google Cast + Firebase enabled) — the previous FOSS
@@ -154,7 +154,7 @@ mostly-independent feature/integration:
 | `:lyrics` | Lyrics orchestration — LyricsHelper, LyricsEntry, LyricsUtils, all provider impls, AI translation |
 | `:innertube` | YouTube Music InnerTube API client (the core music source) |
 | `:kugou`, `:lrclib`, `:betterlyrics`, `:youlyplus`, `:paxsenixlyrics`, `:simpmusic` | Individual lyrics source providers (each consumed by `:lyrics`) |
-| `:shazamkit` | Music recognition ("Echo Find") |
+| `:shazamkit` | Music recognition ("Dande Find") |
 | `:canvas`, `:echomusiccanvas`, `:applecanvas` | Canvas-style looping video backgrounds for tracks (different providers) |
 | `:artistvideo` | Artist video features |
 | `:unison` | Cross-cutting shared utility module (check source before editing) |
@@ -188,7 +188,7 @@ lyrics/         Lyrics orchestration (aggregates the lyrics provider modules)
 models/         Shared data models
 playback/       Media3/ExoPlayer service, download manager, queueing, audio
 quicksettings/  Android quick settings tile
-recognition/    Music recognition (Echo Find) app-side logic
+recognition/    Music recognition (Dande Find) app-side logic
 spotify/        Spotify API integration
 spotifyimport/  Import playlists/tracks from Spotify
 ui/

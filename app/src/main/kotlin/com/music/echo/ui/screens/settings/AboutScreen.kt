@@ -77,7 +77,7 @@ highlightKey: String? = null) {
     LaunchedEffect(Unit) {
         withContext(Dispatchers.IO) {
             try {
-                val url = java.net.URL("https://api.github.com/repos/EchoMusicApp/Echo-Music/contributors")
+                val url = java.net.URL("https://api.github.com/repos/DandeMusicApp/Dande-Music/contributors")
                 val json = url.openStream().bufferedReader().use { it.readText() }
                 val array = JSONArray(json)
                 val list = mutableListOf<Contributor>()
@@ -247,8 +247,8 @@ highlightKey: String? = null) {
                     AboutActionRow(
                         icon = painterResource(R.drawable.github),
                         title = "GitHub",
-                        subtitle = "EchoMusicApp/Echo-Music",
-                        onClick = { uriHandler.openUri("https://github.com/EchoMusicApp/Echo-Music") },
+                        subtitle = "DandeMusicApp/Dande-Music",
+                        onClick = { uriHandler.openUri("https://github.com/DandeMusicApp/Dande-Music") },
                     )
                     AboutDivider()
                     AboutActionRow(
@@ -261,8 +261,8 @@ highlightKey: String? = null) {
                     AboutActionRow(
                         icon = painterResource(R.drawable.ic_telegram_new),
                         title = "Telegram",
-                        subtitle = "t.me/EchoMusicApp",
-                        onClick = { uriHandler.openUri("https://t.me/EchoMusicApp") },
+                        subtitle = "t.me/DandeMusicApp",
+                        onClick = { uriHandler.openUri("https://t.me/DandeMusicApp") },
                     )
                 }
             } */
@@ -344,7 +344,7 @@ private fun AboutAppCard() {
             Spacer(Modifier.height(4.dp))
             
             Text(
-                text = if (rotation <= 90f) "Echo Music" else "Developed by Aditya",
+                text = if (rotation <= 90f) "Dande Music" else "Developed by Aditya",
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onSurface,

@@ -37,13 +37,13 @@ object PlayerColorExtractor {
             val bestColor = Color(bestSwatch.rgb)
             
             if (isColorVibrant(bestColor)) {
-                enhanceColorEchodness(bestColor, 1.3f)
+                enhanceColorDandedness(bestColor, 1.3f)
             } else {
                 
-                enhanceColorEchodness(fallbackDominant, 1.1f)
+                enhanceColorDandedness(fallbackDominant, 1.1f)
             }
         } else {
-            enhanceColorEchodness(fallbackDominant, 1.1f)
+            enhanceColorDandedness(fallbackDominant, 1.1f)
         }
         
         
@@ -72,7 +72,7 @@ object PlayerColorExtractor {
     }
     
     
-    private fun enhanceColorEchodness(color: Color, saturationFactor: Float = 1.4f): Color {
+    private fun enhanceColorDandedness(color: Color, saturationFactor: Float = 1.4f): Color {
         val argb = color.toArgb()
         val hsv = FloatArray(3)
         android.graphics.Color.colorToHSV(argb, hsv)

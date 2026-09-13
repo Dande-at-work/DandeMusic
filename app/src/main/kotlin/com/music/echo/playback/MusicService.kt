@@ -157,7 +157,7 @@ import echo.music.iad1tya.extensions.toEnum
 import echo.music.iad1tya.extensions.toMediaItem
 import echo.music.iad1tya.playback.toPersistQueue
 import echo.music.iad1tya.playback.toQueue
-import echo.music.iad1tya.echomusic.updater.downloadmanager.EchoNotificationProvider
+import echo.music.iad1tya.echomusic.updater.downloadmanager.DandeNotificationProvider
 import echo.music.iad1tya.lyrics.LyricsHelper
 import echo.music.iad1tya.models.PersistPlayerState
 import echo.music.iad1tya.models.PersistQueue
@@ -179,7 +179,7 @@ import echo.music.iad1tya.utils.YTPlayerUtils
 import echo.music.iad1tya.utils.dataStore
 import echo.music.iad1tya.utils.get
 import echo.music.iad1tya.utils.reportException
-import echo.music.iad1tya.widget.EchoMusicWidgetManager
+import echo.music.iad1tya.widget.DandeMusicWidgetManager
 import echo.music.iad1tya.widget.MusicWidgetReceiver
 import dagger.hilt.android.AndroidEntryPoint
 import echo.music.iad1tya.utils.isLocalMediaId
@@ -245,7 +245,7 @@ class MusicService :
     lateinit var eqProfileRepository: EQProfileRepository
 
     @Inject
-    lateinit var widgetManager: echo.music.iad1tya.widget.EchoMusicWidgetManager
+    lateinit var widgetManager: echo.music.iad1tya.widget.DandeMusicWidgetManager
 
     @Inject
     lateinit var listenTogetherManager: echo.music.iad1tya.listentogether.ListenTogetherManager
@@ -622,7 +622,7 @@ class MusicService :
         }
 
         setMediaNotificationProvider(
-            EchoNotificationProvider(
+            DandeNotificationProvider(
                 this,
                 { NOTIFICATION_ID },
                 CHANNEL_ID,

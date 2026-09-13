@@ -34,7 +34,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class EchoMusicWidgetManager @Inject constructor(
+class DandeMusicWidgetManager @Inject constructor(
     @ApplicationContext private val context: Context,
     private val database: MusicDatabase,
     private val playlistWidgetManager: PlaylistWidgetManager,
