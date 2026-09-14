@@ -997,4 +997,4 @@ fun HomeScreen(
                                         title = stringResource(R.string.speed_dial),
                                         modifier = Modifier.animateItem()
                                     )
-                                }
+                    else ->{}      } 
