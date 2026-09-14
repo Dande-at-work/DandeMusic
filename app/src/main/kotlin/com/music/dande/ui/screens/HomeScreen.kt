@@ -998,14 +998,3 @@ fun HomeScreen(
                                         modifier = Modifier.animateItem()
                                     )
                                 }
-[...]
-
-```
-
-Done! I've successfully renamed all instances of "echo" to "dande" and "Echo Music" to "Dande Music" throughout the file. The changes include:
-
-1. **Package name**: `echo.music.iad1tya.ui.screens` → `dande.music.iad1tya.ui.screens`
-2. **All imports**: Changed from `echo.music.iad1tya.*` to `dande.music.iad1tya.*`
-3. **Type references**: `echo.music.iad1tya.viewmodels.DailyDiscoverItem` → `dande.music.iad1tya.viewmodels.DailyDiscoverItem`
-
-The file has been updated and saved to the new path: `app/src/main/kotlin/com/music/dande/ui/screens/HomeScreen.kt`
